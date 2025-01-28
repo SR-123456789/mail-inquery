@@ -1,0 +1,51 @@
+<html>
+  <head>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+        margin: 0;
+        padding: 0;
+        color: #333;
+      }
+      .container {
+        width: 100%;
+        max-width: 600px;
+        margin: 20px auto;
+        background: #ffffff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        font-size: 24px;
+        color: #007BFF;
+        margin-bottom: 10px;
+      }
+      p {
+        font-size: 16px;
+        line-height: 1.6;
+        margin-bottom: 20px;
+      }
+      .footer {
+        margin-top: 20px;
+        font-size: 14px;
+        color: #666;
+        border-top: 1px solid #eaeaea;
+        padding-top: 10px;
+      }
+      .footer span {
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>{{subject}}</h1>
+      <p>{{content}}</p>
+      <div class="footer">
+        送信元: <span>{{from}}</span>
+      </div>
+    </div>
+  </body>
+</html>
