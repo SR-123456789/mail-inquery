@@ -1,0 +1,71 @@
+openapi: 3.0.3
+info:
+  title: Mail Service API
+  description: お問い合わせ内容を対応用メールアドレスに送信するAPI
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000
+    description: ローカルサーバー
+  - url: https://your-production-url.com
+    description: 本番サーバー
+paths:
+  /mail/send:
+    post:
+      summary: お問い合わせ内容の送信
+      description: お問い合わせ画面から送信された内容を対応用メールアドレスに送信します。
+      requestBody:
+        description: お問い合わせ内容
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                from:
+                  type: string
+                  format: email
+                  description: お問い合わせを送信したユーザーのメールアドレス
+                  example: user@example.com
+                subject:
+                  type: string
+                  description: メールの件名
+                  example: お問い合わせ件名
+                content:
+                  type: string
+                  description: メールの本文
+                  example: お問い合わせ内容
+              required:
+                - from
+                - subject
+                - content
+      responses:
+        '200':
+          description: メール送信成功
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: お問い合わせ内容を送信しました！
+        '400':
+          description: リクエストデータが不正
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: 入力データが不正です。
+        '500':
+          description: サーバーエラー
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: メール送信に失敗しました。
