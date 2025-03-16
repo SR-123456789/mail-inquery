@@ -1,1 +1,1 @@
-# mail-inquery
+# mail-inquery-main
